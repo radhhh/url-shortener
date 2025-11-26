@@ -24,7 +24,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { toast } from "sonner";
-import Link from "next/link";
 import { useState } from "react";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
@@ -123,6 +122,7 @@ function UrlFormContent() {
           label: "Copy",
           onClick: () => {
             navigator.clipboard.writeText(shortUrl);
+            toast.success("Copied to clipboard!");
           },
         },
       });

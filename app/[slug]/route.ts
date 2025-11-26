@@ -4,12 +4,12 @@ import { createHash } from "crypto";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { slug: string } },
+  { params }: { params: Promise<{ slug: string }> },
 ) {
-  params = await params;
+  const { slug } = await params;
   const link = await prisma.link.findUnique({
     where: {
-      slug: params.slug,
+      slug,
       active: true,
       OR: [{ expiresAt: null }, { expiresAt: { gt: new Date() } }],
     },
