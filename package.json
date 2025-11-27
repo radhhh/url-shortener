@@ -7,7 +7,10 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "copy-prisma-libquery1": "cp ./lib/generated/prisma/libquery_engine* ./.next/server/app/'[slug]'/",
+    "copy-prisma-libquery2": "cp ./lib/generated/prisma/libquery_engine* ./.next/server/app/api/links/",
+    "vercel-build": "prisma generate && next build --webpack && npm run copy-prisma-libquery1 && npm run copy-prisma-libquery2"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
