@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { linkFormSchema } from "@/lib/schema";
 
+export const runtime = "nodejs";
+
 export async function POST(req: NextRequest) {
   try {
     const json = await req.json();
