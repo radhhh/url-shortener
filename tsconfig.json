@@ -23,7 +23,6 @@
     }
   },
   "include": [
-    "prisma-plugin.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
